@@ -18,26 +18,41 @@
         <div class="section-title">Abstract</div>
         <div class="content">
             <p style="word-wrap: break-word; width: 300px;">
-                By going through a folder containing the frames of a video, 
-                this GAN model can generate an inbetween frame to make the video smoother.
-                Processing each frame can take less than a few seconds.
+                This GAN model adapts Niklaus et al.'s SepConv network to generate images and uses adversarial learning to
+                train the generator. The adversarial learning should assist in creating frames as close to the inputs as possible.
+                The SepConv model was chosen to act as the generator because it can transform a high-resolution image without issue.
             </p>
+            <img src="generator.PNG">
+            <img src="discriminator.PNG"></img></img>
         </div>
     </section>
     <section class="section">
         <div class="section-title">Methodology</div>
         <div class="content">
-            <p style="word-wrap: break-word; width: 300px;">
-                iowhdaiwdhaoiwdhaoishdaknawkldnalkwdnalkwdnlakwdnlkawndklawnd
+            <p style="word-wrap: break-word; width: 800px;">
+                The network encodes image frames to extract the features then reconstructs them. 
+                Skip connections assist in preserving image features.
+                A program to write the video files iterates through a directory containing the video frames.
+                The program takes two images in sequential order and feeds them through the generator, saving the resulting image in another directory.
+                Using moviepy, the frames are taken from the original and new image directories and encoded into a video file.
+                The network implementation was done using Pytorch and visualized using Jupyter Notebook. 
+                A separate program to iterate through the necessary directories and image frames was done in Python.
             </p>
+            <img src="training1.PNG" width="500px">
         </div>
     </section>
 
     <section class="section">
         <div class="section-title">Results</div>
         <div class="content">
-            <p>t</p>
+            <p style="word-wrap: break-word; width: 600px;">
+                Processing each frame can take less than a few seconds.
+                However, each frame appears to be the average of frame 1 and frame 2.
+                Two different ways to process each frame: breaking it into 64x64 patches or by entire frames.
+            </p>
+            <img src = "results1.PNG">
         </div>
+        
     </section>
 
     <section class="section">
